@@ -1,14 +1,12 @@
-mod clock;
 mod game_of_life;
 
 use bevy::{prelude::*, window::PrimaryWindow};
 use chrono::TimeDelta;
-use clock::SimpleClock;
-use game_of_life::{Cell, Grid};
+use game_of_life::{clock::SimpleClock, grid::{Cell, Grid}};
 
-const GRID_WIDTH: usize = 100;
-const GRID_HEIGHT: usize = 100;
-const CELL_SIZE: f32 = 8.0;
+const GRID_WIDTH: usize = 50;
+const GRID_HEIGHT: usize = 50;
+const CELL_SIZE: f32 = 16.0;
 const TIME_STEP: TimeDelta = TimeDelta::new(0, (0.05 * 1e9) as u32).unwrap();
 const INIT_POSITIV_PROBA: f64 = 0.5;
 
@@ -83,7 +81,7 @@ fn handle_mouse_inputs(
         if let Some(position) = q_windows.single().cursor_position() {
             let x = (position.x / CELL_SIZE) as usize;
             let y = (position.y / CELL_SIZE) as usize;
-            println!("Clicked on cell ({}, {})", x, y);
+            grid.toggle_value(x, y);
         }
     }
 }
@@ -148,7 +146,7 @@ fn draw_grid(
             );
 
             commands.spawn((
-                Sprite::from_image(asset_server.load("cell_8x8.png")),
+                Sprite::from_image(asset_server.load("cell16x16.png")),
                 Transform::from_translation(pos),
                 GlobalTransform::default(),
                 Visibility::Visible,

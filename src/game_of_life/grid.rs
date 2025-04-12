@@ -51,7 +51,7 @@ impl Grid {
         self.assert_coords_valid(x, y);
         self.cells[y][x] = value
     }
-
+    
     pub fn toggle_value(&mut self, x: usize, y: usize) -> () {
         self.set_value(x, y, !self.get_value(x, y));
     }
