@@ -10,10 +10,7 @@
 This project is an implementation of Conway's famous **"Game of Life"**, built with Rust and the Bevy game engine. It's my first Rust project, created to learn the basics of the language.
 
 <p align="center">
-  <video width="600" controls>
-    <source src="./readme_resources/game_of_life_demo.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <img src="./readme_resources/game_of_life_demo.gif" alt="Game of Life Demo" width="600" />
 </p>
 
 ## ✨ Features
