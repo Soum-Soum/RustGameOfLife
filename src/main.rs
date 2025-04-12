@@ -5,7 +5,7 @@ use chrono::TimeDelta;
 use game_of_life::{clock::SimpleClock, grid::{Cell, Grid}};
 
 const GRID_WIDTH: usize = 50;
-const GRID_HEIGHT: usize = 50;
+const GRID_HEIGHT: usize = 25;
 const CELL_SIZE: f32 = 16.0;
 const TIME_STEP: TimeDelta = TimeDelta::new(0, (0.05 * 1e9) as u32).unwrap();
 const INIT_POSITIV_PROBA: f64 = 0.5;
