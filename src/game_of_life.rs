@@ -52,6 +52,10 @@ impl Grid {
         self.cells[y][x] = value
     }
 
+    pub fn toggle_value(&mut self, x: usize, y: usize) -> () {
+        self.set_value(x, y, !self.get_value(x, y));
+    }
+
     fn count_alive_neighbors(&self, x: usize, y: usize) -> i32 {
         let xi = x as i32;
         let yi = y as i32;
@@ -99,6 +103,14 @@ impl Grid {
         for x in 0..self.width {
             for y in 0..self.height {
                 self.set_value(x, y, random_bool(p));
+            }
+        }
+    }
+
+    pub fn clear(&mut self) -> () {
+        for x in 0..self.width {
+            for y in 0..self.height {
+                self.set_value(x, y, false);
             }
         }
     }
